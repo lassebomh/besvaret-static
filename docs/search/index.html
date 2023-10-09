@@ -1,0 +1,143 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://besvaret.dk/search/" />
+    <title>Søg på Besvaret.dk</title>
+    <meta name="description" content="Find spørgsmål og svar på">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='robots' content='index, follow, max-image-preview:large' />
+    <meta name="theme-color" content="#10334a" />
+    <link rel="apple-touch-icon" href="/static/images/logo_180.png">
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta property="og:locale" content="da-dk" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Søg på Besvaret.dk" />
+    <meta property="og:description" content="Find spørgsmål og svar på" />
+    <meta property="og:url" content="https://besvaret.dk/search/" />
+    <meta property="og:site_name" content="Besvaret.dk" />
+    
+
+    
+    
+    
+    
+        <meta name="robots" content="noindex">
+    
+
+
+    <link rel="shortcut icon" href="/static/images/logo_64.png" type="image/x-icon">
+    <link href="/static/build/css/full.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.active-toggler'), 0);
+            $navbarBurgers.forEach( el => {
+                el.addEventListener('click', () => {
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+
+            [...document.querySelectorAll('.link-inner')].forEach((linkInner) => {
+                let link = linkInner.querySelector('a')
+                linkInner.addEventListener('click', () => {
+                    link.click()
+                })
+            })
+        });
+
+        
+        
+    </script>
+
+    
+</head>
+<body>
+    <!-- START NAV -->
+    <nav class="navbar" style="box-shadow: 0 0 0.5em 0 rgb(0 0 0 / 15%);">
+        <div class="container py-0">
+            <div class="navbar-brand">
+                <a class="navbar-item is-flex is-justify-content-end" href="/">
+                    <img width="32" height="32" src="/static/images/logo_64.png" alt="Besvaret.dk">
+                    <span class="pl-1" style="letter-spacing: -0.1em; color: #616161; font-weight: bold; font-size: 1.5rem;">
+                        Besvaret.dk
+                    </span>
+                </a>
+                <span class="navbar-burger active-toggler burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end is-size-7">
+                    <a class="navbar-item" href="/">
+                        Forside
+                    </a>
+                    <a class="navbar-item" href="/search/">
+                        Artikler
+                    </a>
+                    <a class="navbar-item" href="/cookies-og-privatliv/">
+                        Privatlivspolitik
+                    </a>
+                    <div class="navbar-item">
+                        <div class="field">
+                            <form method="get" action="/search/" class="control has-icons-left">
+                                <input class="input is-rounded" name="q" required type="search" placeholder="Find et svar" value="">
+
+                            </form>
+                        </div>
+                    </div>
+                    
+                        
+                    <a class="navbar-item" href="/bliv-skribent/">
+                        <div class="button is-success is-light">
+                            Bliv skribent
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+    
+
+<main>
+
+
+</main>
+
+
+
+    <footer class="footer py-4">
+        <div class="content has-text-centered">
+            Copyright &copy; Besvaret.dk 2023 — <a href="/om-os/">Information om os</a> — <a href="/cookies-og-privatliv/">Cookie- og privatlivspolitik</a>
+        </div>
+    </footer>
+    
+        <script>
+            async function cookiePopupClicked(consent_given) {
+                let req = fetch(consent_given ? "/cookies-og-privatliv/accept/" : "/cookies-og-privatliv/decline/", {method: 'post'})
+                if (consent_given) {
+                    const cookiePopupContainer = document.getElementById('cookie-popup-container')
+                    cookiePopupContainer.remove()
+                } else {
+                    await req;
+                    location.reload()
+                }
+            }
+        </script>
+        
+    
+</body>
+</html>
